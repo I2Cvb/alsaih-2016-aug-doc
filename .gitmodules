@@ -1,0 +1,6 @@
+[submodule "content/bib/retinopathy-bibtex"]
+	path = content/bib/retinopathy-bibtex
+	url = https://github.com/I2Cvb/retinopathy-bibtex.git
+[submodule "content/bib/i2cvb-retinopathy-bibtex"]
+	path = content/bib/i2cvb-retinopathy-bibtex
+	url = https://github.com/I2Cvb/i2cvb-retinopathy-bibtex.git
