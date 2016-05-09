@@ -1,0 +1,34 @@
+% include the figures path relative to the master file
+\graphicspath{ {./content/intro/figures/} }
+
+\section{Introduction}
+\label{sec:intro}  % \label{} allows reference to this section
+
+\gls{dr}, and more particularly \gls{dme}, are leading causes of irreversible vision loss and the most common eye diseases in individuals with diabetes.
+Taking into account that the number of individuals affected by diabetes dieases are expected to grow exponentially in the next decade~\cite{wild2004global},
+developing methodologies for early detection and treatment of \gls{dr} and \gls{dme} has become a priority to prevent adverse effects.
+
+The main focus of this work is to describe the actual state of \gls{dme} detection in \gls{oct} images.
+\gls{dme} presents an increase in retinal thickness within 1 disk diameter of the fovea center with or without hard exudates and sometimes associated with cysts~\cite{ETDRSG1985}.
+\gls{sdoct} is an emerging eye imaging modality providing cross-sectional retinal morphology information~\cite{Wang2015}, which cannot be estimated from more established eye imaging modalities such as fundus imaging.
+
+The initial efforts of the ophtalmic community in developing technologies for \gls{sdoct} have been placed in segmenting the retinal layers, which is a necessary step for retinal thickness measurements~\cite{Chiu2010,Kafieh2013}.
+However, latter efforts address the specific problem of \gls{dme} automatic detection in \gls{oct} volumes.
+These efforts reveal the needs to address: (i) enhancing the quality of \gls{oct} volumes,
+(ii) finding pathology signs,
+and (iii) appropriate classification strategies.
+
+Advances in any of those regards is of great interest since (i) manual evaluation of \gls{sdoct} volumetric scans is expensive and time consuming~\cite{Venhuizen2015};
+(ii) \gls{sdoct} acquisition has some shortcomings due to eye movements during the scanning~\cite{Liu2011}, reflectivity nature of the retina~\cite{schuman2004optical}, high level of noise and inconsistent quality of the images;
+(iii) due to the coexistence of multiple pathologies~\cite{Liu2011} as well as large intra-pathology variability, consistently identifying pathology-specific biomarkers remains challenging~\cite{Venhuizen2015}.
+
+The rest of this article is structured as follows: Section~\ref{sec:review} offers a general idea of the literature state-of-the-art in \gls{sdoct} volume classification. Section~\ref{sec:data} reviews some publicly available datasets and states the need for another one that suits the classification task here described.
+Section~\ref{sec:exp} proposes an experimental benchmark to compare different methodologies presented in Sect.\,\ref{sec:review}.
+Section~\ref{sec:results} reports and discusses the obtained results, while Sect.\,\ref{sec:conclusion} wraps up our thoughts regarding this work and its possible direction.
+
+% Some stuff that emac's colegues use
+%%% Local Variables:
+%%% mode: late
+%%% TeX-master: "../../main.tex"
+%%% End: \section{introduction}
+

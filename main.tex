@@ -1,0 +1,91 @@
+% Template for IEEEtransactions
+% Adapted by Sik in March 2016 to meet his requirements
+%
+\documentclass[10pt,conference,a4paper]{latex/IEEEtran}
+%% Latex documents that need direct input
+%
+\input{./latex/filesystem/ieee_packages.tex}  % contains the latex packages for IEEEtrans
+\input{./latex/filesystem/package.tex}        % contains the latex packages
+% \input{./latex/filesystem/package_edition.tex}% contains the latex packages
+% \usepackage[numbers]{natbib}
+\input{latex/filesystem/fileSetup.tex}        % contains package and variables init.
+\input{content/acronym_definition.tex}      % contains the acronims
+
+%% Select inputing only one part of the document
+%\includeonly{content/intro/intro}   % the file wihtout .tex
+%\includeonly{content/other/other_content}
+
+% \addbibresource{./content/lit_review.bib}
+% \addbibresource{./content/biblatex-examples.bib}
+
+%% Include all macros below
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
+%% END MACROS SECTION
+
+\begin{document}
+\input{content/frontmatter.tex}             % contains the Title and Autor info
+
+\maketitle
+
+% Please keep the abstract below 300 words
+\begin{abstract}
+This article reviews the current state of automatic classification methodologies to identify \gls{dme} versus normal subjects based on \gls{sdoct} data.
+Addressing this classification problem has valuable interest since early detection and treatment of \gls{dme} play a major role to prevent eye adverse effects such as blindness.
+
+The main contribution of this article is to cover the lack of a public dataset and benchmark suited for classifying \gls{dme} and normal \gls{sdoct} volumes, providing our own implementation of the most relevant methodologies in the literature.
+Subsequently, 6 different methods were implemented and evaluated using this common benchmark and dataset to produce reliable comparison.
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+  \glsresetall % reset the acronyms from the abstract
+  \gls{dme},
+  \gls{sdoct},
+  \gls{ml},
+  benchmark,
+\end{IEEEkeywords}
+
+% \linenumbers
+
+%% Incldue the content without .tex extension
+\glsresetall % reset the acronyms from the abstract
+\include*{content/intro/intro}          % the file wihtout .tex
+\include*{content/survey/background}
+\include*{content/method/dataset}
+\input{./content/results/table_summary}
+\include*{content/method/method}
+\include*{content/results/results}
+% \section{Discussion}\label{sec:discussion}
+\section{Conclusion and Further work}\label{sec:conclusion}
+The work here presented states the relevance of developing methodologies to automatically differentiate \gls{dme} \emph{vs.} normal \gls{sdoct} scans.
+This article offers an overview of the state-of-the-art of \gls{dme} detection and provides a public benchmarking to facilitate further studies.
+In this regard, there are two crucial aspects to improve the work here presented:
+(i) enlarge the dataset.
+%(ii) reach out for the other authors of those methods in Sect.\,\ref{sec:review} that could not be included in Sect.\,\ref{sec:exp} because our implementation could not be tested against the original data or we did not achieve the original results.
+(ii) reach out to other authors in order to enlarge this benchmark with additional methods and improve the existing approaches.
+
+% \nolinenumbers
+
+%\section*{References}
+% Either type in your references using
+% \begin{thebibliography}{}
+% \bibitem{}
+% Text
+% \end{thebibliography}
+%
+% OR
+%
+% Compile your BiBTeX database using our plos2015.bst
+% style file and paste the contents of your .bbl file
+% here.
+
+% % Imports the bibliography file "sample.bib"
+% \bibliography{sample}
+\bibliographystyle{IEEEtran}
+\IEEEtriggeratref{17}
+\bibliography{content/bib/literature_review,content/bib/medical/medical,content/bib/retinopathy/retinopathy}
+
+\end{document}
