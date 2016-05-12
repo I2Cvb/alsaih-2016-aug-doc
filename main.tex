@@ -51,19 +51,24 @@ Experimental Results show a promising sensitivity/specificity of 0.75/0.875 on a
 %% Incldue the content without .tex extension
 \glsresetall % reset the acronyms from the abstract
 \include*{content/intro/intro}          % the file wihtout .tex
-\include*{content/survey/background}
+\include*{content/survey/relatedwork}
 \include*{content/method/dataset}
-\input{./content/results/table_summary}
 \include*{content/method/method}
 \include*{content/results/results}
-% \section{Discussion}\label{sec:discussion}
-\section{Conclusion and Further work}\label{sec:conclusion}
-The work here presented states the relevance of developing methodologies to automatically differentiate \gls{dme} \emph{vs.} normal \gls{sdoct} scans.
-This article offers an overview of the state-of-the-art of \gls{dme} detection and provides a public benchmarking to facilitate further studies.
-In this regard, there are two crucial aspects to improve the work here presented:
-(i) enlarge the dataset.
-%(ii) reach out for the other authors of those methods in Sect.\,\ref{sec:review} that could not be included in Sect.\,\ref{sec:exp} because our implementation could not be tested against the original data or we did not achieve the original results.
-(ii) reach out to other authors in order to enlarge this benchmark with additional methods and improve the existing approaches.
+
+\section{Discussion and Conclusion}\label{sec:dis-con}
+
+We presented an automatic classification framework for \gls{sdoct} volumes in order to indentify \gls{dme} volumes versus normal Volumes.
+In this regard, we investigated a generic pipeline including preprocessing, feature extraction and feature reduction and feature combination.
+The best results were obtained for \gls{hog} feature vectors.
+We plan to extend our work with a \gls{bow} approach as well as we intend to study other classifiers (\gls{rbf}-\gls{svm}, \gls{rf}) in a near future.
+Also, we are currently working on the extension of the dataset so as to make it more challengeable and open to the community.
+
+\section{Acknowledgment}
+The authors would like to acknowledge the financial support of the PHC Merlion from France and Singapore.
+The authors would like to acknowledge the Regional Burgundy Council which partially financially supported the current project under the PARI scheme 2.
+
+
 
 % \nolinenumbers
 
@@ -83,7 +88,7 @@ In this regard, there are two crucial aspects to improve the work here presented
 % % Imports the bibliography file "sample.bib"
 % \bibliography{sample}
 \bibliographystyle{IEEEtran}
-\IEEEtriggeratref{17}
+\IEEEtriggeratref{12}
 \bibliography{content/bib/literature_review,content/bib/retinopathy-bibtex/retinopathy-bibtex,content/bib/i2cvb-retinopathy-bibtex/i2cvb-retinopathy-bibtex}
 
 \end{document}

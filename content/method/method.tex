@@ -1,76 +1,21 @@
 % include the figures path relative to the master file
 \graphicspath{ {./content/method/figures/} }
 
-\section{Experimental Setup}\label{sec:exp}
+\section{Methodology}\label{sec:method}
 
-The experimental set-up is summarized in Table~\ref{tab:survey-tab}, where the most relevant works in Sect.\,\ref{sec:review} are formulated as the 5-steps standard classification procedure described in Fig.\,\ref{fig:ML-scheme}.
+Our approach is based on the original paper of Srinivasan et al.\,\cite{srinivasan2014fully} to which a feature extraction procedure (\gls{pca}) was added, as proposed by Venhuizen~\cite{venhuizen2015automated}.
+Our general pipeline is presented on Fig,\,\ref{fig:fig3}.
 
-\subsection{Implementation details}\label{sec:exp:implementation}
-The experiments, described in this work, are publicly available at~\cite{rethinopaty20016apr-repoICPR} allowing for further comparisons and improvements.
-All the methods in Table~\ref{tab:survey-tab} have been developed using \emph{protoclass}~\cite{protoclass2016apr-repoICPR}, a rapid prototyping toolkit to perform image processing and \gls{ml} tasks.
-Furthermore, each method has been implemented as a plug-in to~\cite{rethinopaty20016apr-repoICPR}, so that all methods can be evaluated in a common framework
-\footnote{See table\,\ref{tab:survey-tab} for standalone repositories of each method. All repositories provide tests to ensure that our implementation comply with the original work.}.
-
-Note that Liu~\emph{et~al.} train the algorithm at the B-scan level, and \gls{seri} dataset provides \gls{gt} at volume level only.
-Thus, two strategies have been explored to solve this issue:
-(i) similarly to Srinivasan~\emph{et~al.}, at training stage, all B-scans are considered as abnormal for a DME volume and at testing stage, a majority vote rule is applied to whether label a volume as abnormal or not;
-(ii) similarly to Venhuizen~\emph{et~al.}, an approach using BoW is used.
-% The strategy to the best classification performance will be reported in Table~\ref{tab:summary_results}.
-From the methods reviewed in Sect.\,\ref{sec:review}, we decline to implement Albarrak~\emph{et~al.} and Anantrasirichai~\textit{et~al.}.
-The former do not provide sufficient implementation details to replicate their results~\cite{albarrak2013age};
-while, the latter use a descriptor based on the layer thickness which require a layer segmentation stage using a generic segmentation algorithm and further user validation~\cite{anantrasirichai2013svm}.
-
-
-\subsection{Evaluation}\label{sec:evaluation}
-All the experiments are evaluated in terms of \gls{se} and \gls{sp} (see Fig.\,\ref{fig:evaluation}) using the \gls{ltpocv} strategy, in line with \cite{Lemaintre2015miccaiOCT}.
-Therefore, at each cross-validation iteration, a \gls{dme} and normal volumes are kept for testing, while the remaining volumes are used as training.
-The \gls{se} evaluates the performance of the classifier with respect to the positive class, while the \gls{sp} evaluates its performance with respect to negative class.
-
-\input{./content/method/figures/evaluation_corolary_def.tex}
+First the image are preprocessed to remove the noise with the BM3D algorithm developed by Dabov et al.\,\cite{dabov2007image}; they are then flatten and cropped as described by Srinivisan et al.\,\cite{srinivasan2014fully} (see Fig.\,\ref{fig:fig4}).
 \begin{figure}
-
-  \def\myRadius{.65cm}
-  \def\vennSpace{(0,0) rectangle (2.6cm,1.6cm)}
-  \def\predictedCircle{(.8cm,.8cm) circle (\myRadius)}
-  \def\actualCircle{(1.8cm,.8cm) circle (\myRadius)}
-  \def\myLabelRadius{.450cm}
-
-  \subfigure[][Confusion matrix with truly and falsely positive samples detected (TP, FP) in the first row, from left to right and the falsely and truly negative samples detected (FN, TN) in the second row, from left to right.]{
-    \label{fig:evaluation:confusion_matrix}
-    \begin{tikzpicture}[scale=0.5]
-      \node at (0,0){
-        \begin{tabular}{
-            >{\centering}m{1em} >{\centering}m{1em} >{\centering}m{1in} >{\centering\arraybackslash}m{1in}}
-          % c>{\centering}m{2em}ccc}
-          & & \multicolumn{2}{c}{ Actual Class }\\
-          & & A+ & A- \\
-          % \parbox[t]{2mm}{\multirow{2}{*}{\rotatebox[origin=c]{90}{\usebox \centering Predicted Class}}}& P+ &  \tikz{\tp} & \tikz{\fp} \\
-          \multirow{3}{*}{\rotatebox[origin=c]{90}{Predicted Class}}& P+ &  \tikz{\tp} & \tikz{\fp} \\
-          & P- & \tikz{\fn} & \tikz{\tn}
-        \end{tabular}
-      };
-    \end{tikzpicture}
-  }\\
-  \centering
-  \subfigure[][\gls{se} and \gls{sp} evaluation, corresponding to the ratio of the doted area over the blue area.]{
-    \label{fig:evaluation:roc_axis}
-    \begin{tikzpicture}[scale=0.5]
-      \def\seEquation{$SE = \frac{TP}{TP+FN}$}
-      \def\spEquation{$SP = \frac{TN}{TN+FP}$}
-      \node[label={[]below:\seEquation}](se){\tikz{\se}};
-      \node[right=5pt of se, label={[]below:\spEquation}]{\tikz{\sp}};
-      % \node[label={[]right:\seEquation}](se){\tikz{\se}};
-      % \node[below=5pt of se, label={[]right:\spEquation}]{\tikz{\sp}};
-    \end{tikzpicture}
-  }
-
-  \caption{Evaluation metrics:
-    \protect\subref{fig:evaluation:confusion_matrix} confusion matrix,
-    \protect\subref{fig:evaluation:roc_axis} \gls{se} - \gls{sp}
-  }
-  \label{fig:evaluation}
+\centering
+\subfigure[Original]{\includegraphics[width = 0.17\textwidth]{Original}}\
+\subfigure[Flatten]{\includegraphics[width = 0.17\textwidth]{Flatten}}
+\caption{Original and flatten image.}
+\label{fig:fig4}
 \end{figure}
-
-Subsequently, no \gls{se} or \gls{sp} variance can be reported.
-%However, \gls{ltpocv} strategy has been adopted despite this limitation due to the reduced size of the dataset.
-
+On the cropped image, we extracted \gls{hog} features~\cite{dalal2005histograms} as well as \gls{lbp} features either in their standard version~\cite{ojala2002multiresolution} or their rotation invariant version~\cite{zhao2012rotation} with different neighborhoods.
+Furthermore, to consider structures at multiple scale levels, \gls{hog} feature vectors as well as \gls{lbp} features vector were extracted at four levels of the multiscale Gaussian lowpass image pyramid.
+For each feature, \gls{hog} or \gls{lbp} the histogram were concatenated into a single feature vector for each image.
+Then the obtained histograms were either fed directly to a linear \gls{svm} classifier or reduced with \gls{pca}. 
+We attempted to combine \gls{hog} and \gls{lbp} feature vectors or used them separately as explained in the next section.

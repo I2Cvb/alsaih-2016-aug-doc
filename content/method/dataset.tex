@@ -2,22 +2,18 @@
 \graphicspath{ {./content/method/figures/} }
 
 \section{Data}\label{sec:data}
-A common dataset is required to compare different methodologies.
-Despite the fact that lack of public data is a common claim in the medical image community~\cite{giger2008anniversary}, the ophtalmic community has recently made available public dataset, mainly gathered at Duke University~\cite{farsiu2014quantitative,Srinivasan2014}.
-Although these datasets have been used by Venhuizen~\emph{et~al.}~\cite{Venhuizen2015} and Srinivasan~\emph{et~al.}~\cite{Srinivasan2014}, they are not suitable for our problem.
 
-Venhuizen~\emph{et~al.} have evaluated their framework on a large public dataset of $384$ \gls{oct} annotated volumes classified either as \gls{amd} or normal cases.
-Our goal, however, remains to focus on the detection of \gls{dme} rather than \gls{amd}, despite the interest of testing the frameworks against a large dataset.
+The datasets used in this study were acquired by the \gls{seri}, using CIRRUS TM (Carl Zeiss Meditec, Inc., Dublin, CA) \gls{sdoct} device~\cite{Chen2005}.
+The datasets consist of 32 \gls{oct} volumes (16 \gls{dme} and 16 normal cases).
+Each volume contains 128 B-scan with resolution of 512~$\times$~1024 pixels.
+All \gls{sdoct} volumes are read and assessed by trained graders and identified as normal or \gls{dme} cases based on evaluation of retinal thickening, hard exudates, intraretinal cystoid space formation and subretinal fluid as presented in the table below.
+Within the \gls{dme} dataset, a large number of lesions were selected to create a rather complete \gls{dme} dataset.
+The volumes and sample numbers for each volume are presented below (Fig.\,\ref{fig:bbdd}):
 
-In the contrary, Srinivasan~\emph{et~al.} have tested their framework using a public dataset containing \gls{amd}, \gls{dme}, and normal volumes~\cite{Srinivasan2014}.
-The data, however, have been denoised, aligned, and cropped, without access to the original set of images.
+\begin{figure*}[t]
+\centering
+        \includegraphics[width = 0.98\textwidth]{khaled_embc}
+\caption{Proposed classification pipeline}
+\label{fig:fig3}
+\end{figure*}
 
-Therefore, we use the \gls{seri} dataset to conduct this study~\cite{seri2016apr-repoICPR}.
-This dataset has been acquired by the \gls{seri}, using CIRRUS TM (Carl Zeiss Meditec, Inc., Dublin, CA) \gls{sdoct} device.
-The dataset consists of 32 \gls{oct} volumes, subdivided into 16 \gls{dme} and 16 normal cases.
-Each volume contains $128$ B-scans with a resolution of \SI[product-units=repeat]{512x1024}{\px}.
-All \gls{sdoct} images have been read and assessed by trained graders and identified as normal or \gls{dme} cases, based on evaluation of retinal thickening, hard exudates, intraretinal cystoid space formation and subretinal fluid (see Fig.\,\ref{fig:bbdd}).
-
-% 4, 2, 1\\
-% 1, 1, 1\\
-% 3, 2, 1\\
