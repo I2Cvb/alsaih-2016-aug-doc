@@ -32,12 +32,10 @@
 
 % Please keep the abstract below 300 words
 \begin{abstract}
-This article reviews the current state of automatic classification methodologies to identify \gls{dme} versus normal subjects based on \gls{sdoct} data.
-Addressing this classification problem has valuable interest since early detection and treatment of \gls{dme} play a major role to prevent eye adverse effects such as blindness.
-
-The main contribution of this article is to cover the lack of a public dataset and benchmark suited for classifying \gls{dme} and normal \gls{sdoct} volumes, providing our own implementation of the most relevant methodologies in the literature.
-Subsequently, 6 different methods were implemented and evaluated using this common benchmark and dataset to produce reliable comparison.
-
+This paper deals with the automated detection of \gls{dme} on \gls{oct} volumes.
+Our method considers a generic classification pipeline with preprocessing for noise removal and flattening of each B-Scan.
+Features such as \gls{hog} and \gls{lbp} are extracted and combined to create a set of different feature vectors which are fed to a linear SVM Classifier.
+Experimental Results show a promising sensitivity/specificity of 0.75/0.875 on a challenging dataset.
 \end{abstract}
 
 \begin{keywords}
