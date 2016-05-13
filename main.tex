@@ -34,17 +34,17 @@
 \begin{abstract}
 This paper deals with the automated detection of \gls{dme} on \gls{oct} volumes.
 Our method considers a generic classification pipeline with preprocessing for noise removal and flattening of each B-Scan.
-Features such as \gls{hog} and \gls{lbp} are extracted and combined to create a set of different feature vectors which are fed to a linear SVM Classifier.
-Experimental Results show a promising sensitivity/specificity of 0.75/0.875 on a challenging dataset.
+Features such as \gls{hog} and \gls{lbp} are extracted and combined to create a set of different feature vectors which are fed to a linear-\gls{svm} Classifier.
+Experimental results show a promising sensitivity/specificity of 0.75/0.87 on a challenging dataset.
 \end{abstract}
 
-\begin{keywords}
-  \glsresetall % reset the acronyms from the abstract
-  \gls{dme},
-  \gls{sdoct},
-  \gls{ml},
-  benchmark,
-\end{keywords}
+%\begin{keywords}
+%  \glsresetall % reset the acronyms from the abstract
+%  \gls{dme},
+%  \gls{sdoct},
+%  \gls{ml},
+%  benchmark,
+%\end{keywords}
 
 % \linenumbers
 
@@ -88,7 +88,7 @@ The authors would like to acknowledge the Regional Burgundy Council which partia
 % % Imports the bibliography file "sample.bib"
 % \bibliography{sample}
 \bibliographystyle{IEEEtran}
-\IEEEtriggeratref{12}
+\IEEEtriggeratref{10}
 \bibliography{content/bib/literature_review,content/bib/retinopathy-bibtex/retinopathy-bibtex,content/bib/i2cvb-retinopathy-bibtex/i2cvb-retinopathy-bibtex}
 
 \end{document}

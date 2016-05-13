@@ -1,6 +1,6 @@
-\section{ Experimental results}\label{sec:results}
+\section{ Experimental results}\label{sec:res}
 
-The validation was done on a leave one patient out basis (one \gls{dme} volume, one normal volume).
+The validation is done on a leave two patient out basis (one \gls{dme} volume, one normal volume).
 As 16 volumes were provided, the experiments were performed 16 times and the results averaged and presented in the following table.
 $_{RI}$ stands for Rotation Invariant \gls{lbp}, whereas $_{NRI}$ stands for Non Rotation Invariant (i.e. \gls{lbp}$_{8-NRI}$ stands for 8 neighbors Non Rotation Invariant).
 The feature vectors were reduced to the size of 40 after \gls{pca} (i.e. \gls{hog}$_{\gls{pca}}$) was applied onto the original \gls{hog} feature vector and 20 for each of the \gls{lbp} extracted feature vector.
@@ -19,7 +19,7 @@ Different experiments were carried out and their results are summarized below (s
   & Sensitivity & Specificity & Precision & F1-score & Accuracy \\
   \midrule
   \multicolumn{6}{c}{}\\[-1.5ex]
-  \gls{hog} & 0.69 & 0.94 & 0.91 & 0.8125 & 0.78 \\
+  \gls{hog} & 0.69 & 0.94 & 0.91 & 0.81 & 0.78 \\
   \multicolumn{6}{c}{}\\[-1.5ex]
 
   \gls{hog}$^{\gls{pca}}$ & 0.75 & 0.87 & 0.85 & 0.80 & 0.81\\
